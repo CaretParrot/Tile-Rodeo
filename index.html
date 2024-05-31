@@ -2,7 +2,8 @@
 <html lang="en">
 
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8" context="hsl(0, 0%, 10%)" media="(prefers-color-scheme: dark)">
+        <meta name="theme-color" content="width=device-width, initial-scale=1.0">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Tile Rodeo</title>
         <style>
@@ -22,7 +23,7 @@
             }
 
             h1 {
-                font-size: 5vmin !important;
+                font-size: max(5vmin, 16px) !important;
             }
 
             label,
@@ -50,7 +51,7 @@
 
             #whiteClock {
                 background-color: hsl(0, 0%, 90%);
-                font-size: 10vmin;
+                font-size: max(10vmin, 16px);
                 justify-content: center;
                 align-items: center;
             }
@@ -58,7 +59,7 @@
             #blackClock {
                 background-color: hsl(0, 0%, 10%);
                 color: hsl(0, 0%, 90%);
-                font-size: 10vmin;
+                font-size: max(10vmin, 16px);
                 justify-content: center;
                 align-items: center;
                 rotate: 180deg;
@@ -67,13 +68,13 @@
             #blackTime {
                 background-color: transparent;
                 color: hsl(0, 0%, 90%);
-                font-size: 15vmin;
+                font-size: max(15vmin, 16px);
             }
 
             #whiteTime {
                 color: hsl(0, 0%, 10%);
                 background-color: transparent;
-                font-size: 15vmin;
+                font-size: max(15vmin, 16px);
             }
 
             #timeSelector {
@@ -83,18 +84,19 @@
             #startButton {
                 color: hsl(240, 90%, 90%);
                 background-color: hsl(240, 50%, 50%);
-                font-size: 10vmin;
+                font-size: max(10vmin, 16px);
             }
 
             #switchButton {
                 color: hsl(0, 90%, 90%);
                 background-color: hsl(0, 50%, 50%);
-                font-size: 10vmin;
+                font-size: max(10vmin, 16px);
                 display: none;
             }
         </style>
         <link rel="icon" type="image/x-icon" href="https://caretparrot.github.io/My-Libraries/Profile%20Picture.png" />
         <link rel="stylesheet" href="https://caretparrot.github.io/My-Libraries/dark.css">
+        <link rel="manifest" href="manifest.json">
         <script defer src="https://caretparrot.github.io/My-Libraries/gpl.js"></script>
         <script defer src="script.js"></script>
     </head>
@@ -122,8 +124,8 @@
             <div id="blackClock">
                 <label id="blackTime">00:00:00:00</label>
             </div>
-            <button id="startButton" ontouchstart="toggleClock()" onclick="toggleClock()">Start</button>
-            <button id="switchButton" ontouchstart="togglePlayer()" onclick="togglePlayer()">⇅</button>
+            <button id="startButton" ontouchend="toggleClock()" onclick="toggleClock()">Start</button>
+            <button id="switchButton" ontouchend="togglePlayer()" onclick="togglePlayer()">⇅</button>
             <div id="whiteClock">
                 <label id="whiteTime">00:00:00:00</label>
             </div>
