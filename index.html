@@ -24,19 +24,10 @@
             input,
             h1,
             button,
-            #whiteClock
-            #blackClock {
+            #whiteClock #blackClock {
                 justify-content: center;
                 align-items: center;
                 text-align: center;
-            }
-
-            button:hover {
-                background-color: hsl(0, 0, 30%);
-            }
-
-            button:active {
-                background-color: hsl(0, 0, 20%);
             }
 
             #timeSelector {
@@ -48,7 +39,6 @@
                 flex-flow: column wrap;
                 background-color: transparent;
                 padding: 0;
-                display: none;
                 flex-grow: 100;
             }
 
@@ -67,6 +57,13 @@
                 justify-content: center;
                 align-items: center;
                 margin: 0;
+                rotate: 180deg;
+            }
+
+            #blackTime {
+                background-color: transparent;
+                color: hsl(0, 0%, 90%);
+                font-size: 15vmin;
             }
 
             #whiteTime {
@@ -75,14 +72,15 @@
                 font-size: 15vmin;
             }
 
-            #blackTime {
-                background-color: hsl(0, 0%, 90%);
-                background-color: transparent;
-                font-size: 15vmin;
-            }
-
             #timeSelector {
                 flex-grow: 2;
+            }
+
+            #middleButton {
+                color: hsl(240, 90%, 90%);
+                background-color: hsl(240, 50%, 50%);
+                margin: 0;
+                font-size: 10vmin;
             }
         </style>
         <link rel="icon" type="image/x-icon" href="https://caretparrot.github.io/My-Libraries/Profile%20Picture.png" />
@@ -103,7 +101,7 @@
             <input id="daysTime" type="number" min="0" max="7" value="0">
             <input id="hoursTime" type="number" min="0" max="23" value="0">
             <input id="minutesTime" type="number" min="0" max="59" value="10">
-            <input id="secondsIncrement" type="number" min="0" max="59" value="0">
+            <input id="secondsTime" type="number" min="0" max="59" value="0">
             <label>Increment</label>
             <input id="daysIncrement" type="number" min="0" max="7" value="0">
             <input id="hoursIncrement" type="number" min="0" max="23" value="0">
@@ -111,11 +109,12 @@
             <input id="secondsIncrement" type="number" min="0" max="59" value="0">
         </div>
         <div id="clocks" class="page">
-            <div id="whiteClock">
-                <label id="whiteTime">00:00:00:00</label>
-            </div>
             <div id="blackClock">
                 <label id="blackTime">00:00:00:00</label>
+            </div>
+            <button id="middleButton" onclick="toggleClock()">Start</button>
+            <div id="whiteClock">
+                <label id="whiteTime">00:00:00:00</label>
             </div>
         </div>
     </body>
