@@ -45,9 +45,8 @@ function toggleClock() {
         timerData.increment = (+id("daysIncrement").value * 86400) + (+id("hoursIncrement").value * 3600) + (+id("minutesIncrement").value * 60) + +id("secondsIncrement").value;
         
         id("startButton").innerHTML = "Reset";
-        id("startButton").style.display = "none";
-        id("switchButton").style.display = "flex";
-        id("blackClock").style.rotate = "0deg";
+        id("backButton").style.display = "none";
+        id("blackTime").style.rotate = "0deg";
         id("timeSelector").style.display = "none";
         id("tileRodeo").style.display = "none";
         
@@ -63,23 +62,27 @@ function toggleClock() {
         timerRunning = false;
         whitesTurn = null;
         id("startButton").innerHTML = "Start";
+        id("backButton").style.display = "flex";
+        setClocks(id("daysTime").value, id("hoursTime").value, id("minutesTime").value, id("secondsTime").value, id("daysTime").value, id("hoursTime").value, id("minutesTime").value, id("secondsTime").value);
         clearInterval(timer);
     }
 }
 
 function togglePlayer() {
-    if (whitesTurn === true) {
+    if (whitesTurn === true && timerRunning === true) {
         whitesTurn = false;
-        id("blackClock").style.rotate = "180deg";
-        id("whiteClock").style.rotate = "180deg";
-        id("switchButton").style.rotate = "180deg";
+        id("blackTime").style.rotate = "180deg";
+        id("whiteTime").style.rotate = "180deg";
+        id("startButton").style.rotate = "180deg";
+        id("backButton").style.rotate = "180deg";
         timerData.white.totalTime += timerData.increment;
         updateClocks();
-    } else {
+    } else if (timerRunning === true) {
         whitesTurn = true;
-        id("blackClock").style.rotate = "0deg";
-        id("whiteClock").style.rotate = "0deg";
-        id("switchButton").style.rotate = "0deg";
+        id("blackTime").style.rotate = "0deg";
+        id("whiteTime").style.rotate = "0deg";
+        id("startButton").style.rotate = "0deg";
+        id("backButton").style.rotate = "0deg";
         timerData.black.totalTime += timerData.increment;
         updateClocks();
     }
