@@ -29,7 +29,7 @@
             label,
             input,
             button {
-                font-size: 150%;
+                font-size: 250%;
             }
 
             label,
@@ -49,7 +49,7 @@
             }
 
             #clocks {
-                flex-flow: row wrap;
+                flex-flow: row nowrap;
                 background-color: transparent;
                 padding: 0;
                 margin: 0;
@@ -58,21 +58,23 @@
             }
 
             #blackTime {
-                font-size: 500%;
-                background-color: hsl(0, 0%, 10%);
+                font-size: 1000%;
+                background-color: transparent;
                 color: hsl(0, 0%, 90%);
                 justify-content: center;
                 align-items: center;
-                flex-grow: 3;
+                flex-grow: 8;
+                rotate: 45deg;
             }
 
             #whiteTime {
                 color: hsl(0, 0%, 10%);
-                font-size: 500%;
-                background-color: hsl(0, 0%, 90%);
+                font-size: 1000%;
+                background-color: transparent;
                 justify-content: center;
                 align-items: center;
-                flex-grow: 3;
+                flex-grow: 8;
+                rotate: -45deg;
             }
 
             #timeSelector {
@@ -94,7 +96,7 @@
 
             #buttonWrapper {
                 background-color: transparent;
-                flex-flow: column wrap;
+                flex-flow: column nowrap;
                 padding: 0;
                 margin: 0;
             }
@@ -112,6 +114,14 @@
 
             #timeSelector * {
                 background-color: hsl(0, 0%, 20%);
+            }
+
+            #blackWrapper {
+                background-color: hsl(0, 0%, 10%);
+            }
+
+            #whiteWrapper {
+                background-color: hsl(0, 0%, 90%);
             }
         </style>
         <link rel="icon" type="image/x-icon" href="https://caretparrot.github.io/My-Libraries/Profile%20Picture.png" />
@@ -143,12 +153,16 @@
             </div>
         </div>
         <div id="clocks" class="page">
-            <button id="blackTime" onclick="togglePlayer()">00:00:00:00</button>
+            <div id="blackWrapper">
+                <button id="blackTime" onclick="togglePlayer()">00:00:00:00</button>
+            </div>
             <div id="buttonWrapper">
                 <button id="startButton" onclick="toggleClock()">Start</button>
                 <button id="backButton" onclick="switchPage('homepage')">←</button>
             </div>
-            <button id="whiteTime" onclick="togglePlayer()">00:00:00:00</button>
+            <div id="whiteWrapper">
+                <button id="whiteTime" onclick="togglePlayer()">00:00:00:00</button>
+            </div>
         </div>
     </body>
 
