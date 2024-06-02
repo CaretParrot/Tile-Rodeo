@@ -19,6 +19,6 @@
     "theme_color": "#000000",
     "background_color": "#000000",
     "display": "fullscreen",
-    "orientation": "any",
+    "orientation": "landscape",
     "prefer_related_applications": true
 }
