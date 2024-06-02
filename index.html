@@ -52,37 +52,33 @@
                 flex-flow: column wrap;
                 background-color: transparent;
                 padding: 0;
+                margin: 0;
                 flex-grow: 1;
                 display: none;
             }
 
             #blackTime {
-                background-color: transparent;
-                color: hsl(0, 0%, 90%);
-                font-size: 300%;
+                font-size: 500%;
                 background-color: hsl(0, 0%, 10%);
                 color: hsl(0, 0%, 90%);
-                font-size: 300%;
                 justify-content: center;
                 align-items: center;
                 rotate: 180deg;
-                flex-grow: 2;
+                flex-grow: 3;
             }
 
             #whiteTime {
                 color: hsl(0, 0%, 10%);
-                background-color: transparent;
-                font-size: 300%;
+                font-size: 500%;
                 background-color: hsl(0, 0%, 90%);
-                font-size: 300%;
                 justify-content: center;
                 align-items: center;
-                flex-grow: 2;
+                flex-grow: 3;
             }
 
             #timeSelector {
-                flex-grow: 10;
                 background-color: hsl(0, 0%, 10%);
+                flex-grow: 5;
             }
 
             #startButton {
@@ -113,7 +109,6 @@
 
             #tileRodeo {
                 background-color: hsl(0, 0%, 10%);
-                flex-grow: 1;
             }
 
             #timeSelector * {
@@ -130,8 +125,8 @@
     <body>
         <div id="homepage" class="page">
             <h1 id="tileRodeo">Tile Rodeo</h1>
-            <div id="timeSelector" class="page">
-                <button onclick="switchPage('clocks')">Start</button>
+            <div id="timeSelector">
+                <button onclick="switchPage('clocks')">Open Clocks</button>
                 <label>Days</label>
                 <label>Hours</label>
                 <label>Minutes</label>
@@ -152,7 +147,7 @@
             <button id="blackTime" onclick="togglePlayer()">00:00:00:00</button>
             <div id="buttonWrapper">
                 <button id="startButton" onclick="toggleClock()">Start</button>
-                <button id="backButton" onclick="switchPage('homepage')">Back</button>
+                <button id="backButton" onclick="switchPage('homepage')">🠄</button>
             </div>
             <button id="whiteTime" onclick="togglePlayer()">00:00:00:00</button>
         </div>

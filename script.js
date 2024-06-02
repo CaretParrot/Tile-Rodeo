@@ -28,12 +28,34 @@ let timerData = {
 
 function switchPage(pageId) {
     let allPages = document.getElementsByClassName("page");
+    console.log(allPages);
 
     for (let i = 0; i < allPages.length; i++) {
         allPages[i].style.display = "none";
     }
 
     id(pageId).style.display = "flex";
+
+    for (let i = 0; i < id(pageId).children.length; i++) {
+        if (id(pageId).children[i].id === "timeSelector") {
+            id(pageId).children[i].style.display = "grid";
+        } else {
+            id(pageId).children[i].style.display = "flex";
+        }
+    }
+
+    timerRunning = false;
+    whitesTurn = null;
+
+    id("startButton").innerHTML = "Start";
+    id("backButton").style.display = "flex";
+
+    id("blackTime").style.rotate = "180deg";
+    id("whiteTime").style.rotate = "0deg";
+    id("startButton").style.rotate = "0deg";
+    id("backButton").style.rotate = "0deg";
+
+    setClocks(id("daysTime").value, id("hoursTime").value, id("minutesTime").value, id("secondsTime").value, id("daysTime").value, id("hoursTime").value, id("minutesTime").value, id("secondsTime").value);
 }
 
 function toggleClock() {
@@ -43,13 +65,11 @@ function toggleClock() {
         timerData.white.totalTime = (+id("daysTime").value * 86400) + (+id("hoursTime").value * 3600) + (+id("minutesTime").value * 60) + +id("secondsTime").value;
         timerData.black.totalTime = (+id("daysTime").value * 86400) + (+id("hoursTime").value * 3600) + (+id("minutesTime").value * 60) + +id("secondsTime").value;
         timerData.increment = (+id("daysIncrement").value * 86400) + (+id("hoursIncrement").value * 3600) + (+id("minutesIncrement").value * 60) + +id("secondsIncrement").value;
-        
-        id("startButton").innerHTML = "Reset";
+
+        id("startButton").innerHTML = "↺";
         id("backButton").style.display = "none";
         id("blackTime").style.rotate = "0deg";
-        id("timeSelector").style.display = "none";
-        id("tileRodeo").style.display = "none";
-        
+
         timer = setInterval(function () {
             if (whitesTurn === true) {
                 timerData.white.totalTime--;
@@ -57,12 +77,42 @@ function toggleClock() {
                 timerData.black.totalTime--;
             }
             updateClocks();
+
+            if (timerData.white.totalTime === 0) {
+                id("blackTime").style.rotate = "180deg";
+                id("whiteTime").style.rotate = "0deg";
+                id("whiteTime").innerHTML = "Black wins!";
+                id("blackTime").innerHTML = "Black wins!";
+                id("backButton").style.display = "flex";
+
+                clearInterval(timer);
+            }
+
+            if (timerData.black.totalTime === 0) {
+                id("blackTime").style.rotate = "180deg";
+                id("backButton").style.rotate = "0deg";
+                id("startButton").style.rotate = "0deg";
+                id("whiteTime").style.rotate = "0deg";
+                id("whiteTime").innerHTML = "White wins!";
+                id("blackTime").innerHTML = "White wins!";
+                id("backButton").style.display = "flex";
+
+                clearInterval(timer);
+            }
         }, 1000);
+
     } else {
         timerRunning = false;
         whitesTurn = null;
+
         id("startButton").innerHTML = "Start";
         id("backButton").style.display = "flex";
+
+        id("blackTime").style.rotate = "180deg";
+        id("whiteTime").style.rotate = "0deg";
+        id("startButton").style.rotate = "0deg";
+        id("backButton").style.rotate = "0deg";
+
         setClocks(id("daysTime").value, id("hoursTime").value, id("minutesTime").value, id("secondsTime").value, id("daysTime").value, id("hoursTime").value, id("minutesTime").value, id("secondsTime").value);
         clearInterval(timer);
     }
@@ -98,7 +148,7 @@ function updateClocks() {
     timerData.black.minutes = Math.floor(((timerData.black.totalTime % 86400) % 3600) / 60);
     timerData.black.seconds = Math.floor(((timerData.black.totalTime % 86400) % 3600) % 60);
     setClocks(timerData.white.days, timerData.white.hours, timerData.white.minutes, timerData.white.seconds, timerData.black.days, timerData.black.hours, timerData.black.minutes, timerData.black.seconds);
-}   
+}
 
 function setClocks(whiteDays, whiteHours, whiteMinutes, whiteSeconds, blackDays, blackHours, blackMinutes, blackSeconds) {
     let newWhiteDays = whiteDays;
@@ -110,7 +160,7 @@ function setClocks(whiteDays, whiteHours, whiteMinutes, whiteSeconds, blackDays,
     let newBlackMinutes = blackMinutes;
     let newBlackSeconds = blackSeconds;
 
-if (+blackDays === 0) {
+    if (+blackDays === 0) {
         newBlackDays = "";
     } else if (blackDays.toString().length === 1) {
         newBlackDays = `0${blackDays}:`;
