@@ -15,6 +15,11 @@
             body {
                 flex-flow: column wrap;
                 max-width: 100%;
+                width: 100%;
+                max-height: 100%;
+                height: 100%;
+                display: flex;
+                background-color: hsl(240, 10%, 10%);
             }
 
             label,
@@ -41,6 +46,7 @@
                 align-items: center;
                 text-align: center;
                 color: hsl(0, 0%, 90%);
+                flex-grow: 1;
             }
 
             #timeSelector {
@@ -59,8 +65,8 @@
 
             #blackTime {
                 font-size: 1000%;
-                background-color: transparent;
                 color: hsl(0, 0%, 90%);
+                background-color: transparent;
                 justify-content: center;
                 align-items: center;
                 flex-grow: 8;
@@ -78,8 +84,8 @@
             }
 
             #timeSelector {
-                background-color: hsl(0, 0%, 10%);
                 flex-grow: 5;
+                width: 100%;
             }
 
             #startButton {
@@ -99,6 +105,7 @@
                 flex-flow: column nowrap;
                 padding: 0;
                 margin: 0;
+                flex-grow: 1;
             }
 
             #homepage {
@@ -108,20 +115,12 @@
                 margin: 0;
             }
 
-            #tileRodeo {
-                background-color: hsl(0, 0%, 10%);
-            }
-
-            #timeSelector * {
-                background-color: hsl(0, 0%, 20%);
+            #whiteWrapper {
+                background-color: hsl(0, 0%, 90%);
             }
 
             #blackWrapper {
-                background-color: hsl(0, 0%, 10%);
-            }
-
-            #whiteWrapper {
-                background-color: hsl(0, 0%, 90%);
+                background-color: hsl(240, 20%, 20%) !important;
             }
         </style>
         <link rel="icon" type="image/x-icon" href="https://caretparrot.github.io/My-Libraries/Profile%20Picture.png" />
