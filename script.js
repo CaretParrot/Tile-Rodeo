@@ -6,7 +6,7 @@ let timerRunning = false;
 let whitesTurn = null;
 let timer;
 
-setClocks(id("daysTime").value, id("hoursTime").value, id("minutesTime").value, id("secondsTime").value, id("daysTime").value, id("hoursTime").value, id("minutesTime").value, id("secondsTime").value);
+setClocks(document.getElementById("daysTime").value, document.getElementById("hoursTime").value, document.getElementById("minutesTime").value, document.getElementById("secondsTime").value, document.getElementById("daysTime").value, document.getElementById("hoursTime").value, document.getElementById("minutesTime").value, document.getElementById("secondsTime").value);
 
 let timerData = {
     increment: null,
@@ -33,23 +33,23 @@ function switchPage(pageId) {
         allPages[i].style.display = "none";
     }
 
-    id(pageId).style.display = "flex";
+    document.getElementById(pageId).style.display = "flex";
 
-    for (let i = 0; i < id(pageId).children.length; i++) {
-        if (id(pageId).children[i].id === "timeSelector") {
-            id(pageId).children[i].style.display = "grid";
+    for (let i = 0; i < document.getElementById(pageId).children.length; i++) {
+        if (document.getElementById(pageId).children[i].id === "timeSelector") {
+            document.getElementById(pageId).children[i].style.display = "grid";
         } else {
-            id(pageId).children[i].style.display = "flex";
+            document.getElementById(pageId).children[i].style.display = "flex";
         }
     }
 
     timerRunning = false;
     whitesTurn = null;
 
-    id("startButton").innerHTML = "Start";
-    id("backButton").style.display = "flex";
+    document.getElementById("startButton").innerHTML = "Start";
+    document.getElementById("backButton").style.display = "flex";
 
-    setClocks(id("daysTime").value, id("hoursTime").value, id("minutesTime").value, id("secondsTime").value, id("daysTime").value, id("hoursTime").value, id("minutesTime").value, id("secondsTime").value);
+    setClocks(document.getElementById("daysTime").value, document.getElementById("hoursTime").value, document.getElementById("minutesTime").value, document.getElementById("secondsTime").value, document.getElementById("daysTime").value, document.getElementById("hoursTime").value, document.getElementById("minutesTime").value, document.getElementById("secondsTime").value);
 }
 
 function toggleClock() {
@@ -57,13 +57,13 @@ function toggleClock() {
     if (timerRunning === false && whitesTurn === null) {
         timerRunning = true;
         whitesTurn = true;
-        timerData.white.totalTime = (+id("daysTime").value * 86400) + (+id("hoursTime").value * 3600) + (+id("minutesTime").value * 60) + +id("secondsTime").value;
-        timerData.black.totalTime = (+id("daysTime").value * 86400) + (+id("hoursTime").value * 3600) + (+id("minutesTime").value * 60) + +id("secondsTime").value;
-        timerData.increment = (+id("daysIncrement").value * 86400) + (+id("hoursIncrement").value * 3600) + (+id("minutesIncrement").value * 60) + +id("secondsIncrement").value;
+        timerData.white.totalTime = (+document.getElementById("daysTime").value * 86400) + (+document.getElementById("hoursTime").value * 3600) + (+document.getElementById("minutesTime").value * 60) + +document.getElementById("secondsTime").value;
+        timerData.black.totalTime = (+document.getElementById("daysTime").value * 86400) + (+document.getElementById("hoursTime").value * 3600) + (+document.getElementById("minutesTime").value * 60) + +document.getElementById("secondsTime").value;
+        timerData.increment = (+document.getElementById("daysIncrement").value * 86400) + (+document.getElementById("hoursIncrement").value * 3600) + (+document.getElementById("minutesIncrement").value * 60) + +document.getElementById("secondsIncrement").value;
 
-        id("startButton").innerHTML = "↺";
-        id("backButton").style.display = "none";
-        id("blackTime").style.rotate = "-45deg";
+        document.getElementById("startButton").innerHTML = "↺";
+        document.getElementById("backButton").style.display = "none";
+        document.getElementById("blackTime").style.rotate = "-45deg";
 
         timer = setInterval(function () {
             if (whitesTurn === true) {
@@ -74,13 +74,13 @@ function toggleClock() {
             updateClocks();
 
             if (timerData.white.totalTime === 0) {
-                id("whiteTime").innerHTML = "Black wins!";
-                id("blackTime").innerHTML = "Black wins!";
-                id("whiteTime").style.fontSize = "600%";
-                id("blackTime").style.fontSize = "600%";
-                id("backButton").style.display = "flex";
-                id("blackTime").style.rotate = "45deg";
-                id("whiteTime").style.rotate = "-45deg";
+                document.getElementById("whiteTime").innerHTML = "Black wins!";
+                document.getElementById("blackTime").innerHTML = "Black wins!";
+                document.getElementById("whiteTime").style.fontSize = "600%";
+                document.getElementById("blackTime").style.fontSize = "600%";
+                document.getElementById("backButton").style.display = "flex";
+                document.getElementById("blackTime").style.rotate = "45deg";
+                document.getElementById("whiteTime").style.rotate = "-45deg";
 
                 clearInterval(timer);
                 timerRunning = false;
@@ -88,13 +88,13 @@ function toggleClock() {
             }
 
             if (timerData.black.totalTime === 0) {
-                id("whiteTime").innerHTML = "White wins!";
-                id("blackTime").innerHTML = "White wins!";
-                id("whiteTime").style.fontSize = "600%";
-                id("blackTime").style.fontSize = "600%";
-                id("backButton").style.display = "flex"; 
-                id("blackTime").style.rotate = "45deg";
-                id("whiteTime").style.rotate = "-45deg";
+                document.getElementById("whiteTime").innerHTML = "White wins!";
+                document.getElementById("blackTime").innerHTML = "White wins!";
+                document.getElementById("whiteTime").style.fontSize = "600%";
+                document.getElementById("blackTime").style.fontSize = "600%";
+                document.getElementById("backButton").style.display = "flex"; 
+                document.getElementById("blackTime").style.rotate = "45deg";
+                document.getElementById("whiteTime").style.rotate = "-45deg";
 
                 clearInterval(timer);
                 timerRunning = false;
@@ -103,23 +103,23 @@ function toggleClock() {
         }, 1000);
 
     } else if (whitesTurn === "Reset") {
-        id("startButton").innerHTML = "Start";
+        document.getElementById("startButton").innerHTML = "Start";
 
-        id("whiteTime").style.fontSize = "600%";
-        id("blackTime").style.fontSize = "600%";
+        document.getElementById("whiteTime").style.fontSize = "600%";
+        document.getElementById("blackTime").style.fontSize = "600%";
 
-        setClocks(id("daysTime").value, id("hoursTime").value, id("minutesTime").value, id("secondsTime").value, id("daysTime").value, id("hoursTime").value, id("minutesTime").value, id("secondsTime").value);
+        setClocks(document.getElementById("daysTime").value, document.getElementById("hoursTime").value, document.getElementById("minutesTime").value, document.getElementById("secondsTime").value, document.getElementById("daysTime").value, document.getElementById("hoursTime").value, document.getElementById("minutesTime").value, document.getElementById("secondsTime").value);
         whitesTurn = null;
     } else {
         timerRunning = false;
         whitesTurn = null;
 
-        id("startButton").innerHTML = "Start";
-        id("backButton").style.display = "flex";
-        id("blackTime").style.rotate = "45deg";
-        id("whiteTime").style.rotate = "-45deg";
+        document.getElementById("startButton").innerHTML = "Start";
+        document.getElementById("backButton").style.display = "flex";
+        document.getElementById("blackTime").style.rotate = "45deg";
+        document.getElementById("whiteTime").style.rotate = "-45deg";
 
-        setClocks(id("daysTime").value, id("hoursTime").value, id("minutesTime").value, id("secondsTime").value, id("daysTime").value, id("hoursTime").value, id("minutesTime").value, id("secondsTime").value);
+        setClocks(document.getElementById("daysTime").value, document.getElementById("hoursTime").value, document.getElementById("minutesTime").value, document.getElementById("secondsTime").value, document.getElementById("daysTime").value, document.getElementById("hoursTime").value, document.getElementById("minutesTime").value, document.getElementById("secondsTime").value);
         clearInterval(timer);
     }
 }
@@ -129,16 +129,16 @@ function togglePlayer() {
         whitesTurn = false;
         timerData.white.totalTime += timerData.increment;
 
-        id("whiteTime").style.rotate = "45deg";
-        id("blackTime").style.rotate = "45deg";
+        document.getElementById("whiteTime").style.rotate = "45deg";
+        document.getElementById("blackTime").style.rotate = "45deg";
 
         updateClocks();
     } else if (timerRunning === true) {
         whitesTurn = true;
         timerData.black.totalTime += timerData.increment;
 
-        id("blackTime").style.rotate = "-45deg";
-        id("whiteTime").style.rotate = "-45deg";
+        document.getElementById("blackTime").style.rotate = "-45deg";
+        document.getElementById("whiteTime").style.rotate = "-45deg";
 
         updateClocks();
     }
@@ -222,10 +222,10 @@ function setClocks(whiteDays, whiteHours, whiteMinutes, whiteSeconds, blackDays,
         newWhiteSeconds = `${whiteSeconds}`;
     }
 
-    id("blackTime").innerHTML = `${newBlackDays}${newBlackHours}${newBlackMinutes}${newBlackSeconds}`;
-    id("whiteTime").innerHTML = `${newWhiteDays}${newWhiteHours}${newWhiteMinutes}${newWhiteSeconds}`;
+    document.getElementById("blackTime").innerHTML = `${newBlackDays}${newBlackHours}${newBlackMinutes}${newBlackSeconds}`;
+    document.getElementById("whiteTime").innerHTML = `${newWhiteDays}${newWhiteHours}${newWhiteMinutes}${newWhiteSeconds}`;
 }
 
 oninput = function (event) {
-    setClocks(id("daysTime").value, id("hoursTime").value, id("minutesTime").value, id("secondsTime").value, id("daysTime").value, id("hoursTime").value, id("minutesTime").value, id("secondsTime").value);
+    setClocks(document.getElementById("daysTime").value, document.getElementById("hoursTime").value, document.getElementById("minutesTime").value, document.getElementById("secondsTime").value, document.getElementById("daysTime").value, document.getElementById("hoursTime").value, document.getElementById("minutesTime").value, document.getElementById("secondsTime").value);
 }
