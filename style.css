@@ -20,7 +20,7 @@ h1 {
 label,
 input,
 button {
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 label,
@@ -34,11 +34,15 @@ button,
     flex-grow: 1;
 }
 
+div {
+    background-color: transparent;
+}
+
 #timeSelector {
     display: grid;
     background-color: transparent;
-    margin: 0rem;
-    padding: 0rem;
+    margin: 0;
+    padding: 0;
     grid: auto / auto auto auto auto auto;
 }
 
@@ -103,4 +107,8 @@ button,
     background-color: hsl(0, 0%, 10%) !important;
     margin: 1rem;
     padding: 1rem;
+}
+
+.column {
+    flex-flow: column wrap;
 }
