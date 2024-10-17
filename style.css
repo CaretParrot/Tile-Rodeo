@@ -57,14 +57,14 @@ div {
 
 #blackTime {
     font-size: 10rem;
-    color: hsl(0, 0%, 90%);
+    color: hsl(240, 90%, 90%);
     background-color: transparent;
     rotate: 45deg;
 }
 
 #whiteTime {
     font-size: 10rem;
-    color: hsl(0, 0%, 10%);
+    color: hsl(240, 10%, 10%);
     background-color: transparent;
     rotate: -45deg;
 }
@@ -98,13 +98,13 @@ div {
 }
 
 #whiteWrapper {
-    background-color: hsl(0, 0%, 90%);
+    background-color: hsl(240, 90%, 90%);
     margin: 1rem;
     padding: 1rem;
 }
 
 #blackWrapper {
-    background-color: hsl(0, 0%, 10%) !important;
+    background-color: hsl(240, 10%, 10%) !important;
     margin: 1rem;
     padding: 1rem;
 }
