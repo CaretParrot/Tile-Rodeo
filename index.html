@@ -8,42 +8,32 @@
         <title>Tile Rodeo</title>
         <link rel="stylesheet" href="./style.css">
         <link rel="icon" type="image/x-icon" href="https://caretparrot.github.io/My-Libraries/Profile%20Picture.png" />
-        <link rel="stylesheet" href="https://caretparrot.github.io/My-Libraries/default.css">
+        <link rel="stylesheet" href="https://caretparrot.github.io/My-Libraries/grid.css">
         <link rel="manifest" href="manifest.json">
         <script defer src="https://caretparrot.github.io/My-Libraries/gpl.js"></script>
         <script defer src="script.js"></script>
     </head>
 
     <body>
-        <div id="homepage" class="page">
-            <div class="column">
-                <h1 id="tileRodeo">Tile Rodeo</h1>
-                <button onclick="switchPage('clocks')">Open Clocks</button>
-            </div>
-            <div id="timeSelector">
-                <label>Starting Time</label>
-                <input id="daysTime" type="number" min="0" max="7" value="0">
-                <input id="hoursTime" type="number" min="0" max="23" value="0">
-                <input id="minutesTime" type="number" min="0" max="59" value="10">
-                <input id="secondsTime" type="number" min="0" max="59" value="0">
-                <label>Increment</label>
-                <input id="daysIncrement" type="number" min="0" max="7" value="0">
-                <input id="hoursIncrement" type="number" min="0" max="23" value="0">
-                <input id="minutesIncrement" type="number" min="0" max="59" value="0">
-                <input id="secondsIncrement" type="number" min="0" max="59" value="0">
-            </div>
+        <div id="timeSelector" class="page">
+            <h1 id="tileRodeo">Tile Rodeo</h1>
+            <button onclick="switchPage('clocks')" id="openClocks">Open Clocks</button>
+            <label>Starting Time</label>
+            <input id="daysTime" type="number" min="0" max="7" value="0">
+            <input id="hoursTime" type="number" min="0" max="23" value="0">
+            <input id="minutesTime" type="number" min="0" max="59" value="10">
+            <input id="secondsTime" type="number" min="0" max="59" value="0">
+            <label>Increment</label>
+            <input id="daysIncrement" type="number" min="0" max="7" value="0">
+            <input id="hoursIncrement" type="number" min="0" max="23" value="0">
+            <input id="minutesIncrement" type="number" min="0" max="59" value="0">
+            <input id="secondsIncrement" type="number" min="0" max="59" value="0">
         </div>
         <div id="clocks" class="page">
-            <div id="blackWrapper">
-                <button id="blackTime" onclick="togglePlayer()">00:00:00:00</button>
-            </div>
-            <div id="buttonWrapper">
-                <button id="startButton" onclick="toggleClock()">Start</button>
-                <button id="backButton" onclick="switchPage('homepage')">←</button>
-            </div>
-            <div id="whiteWrapper">
-                <button id="whiteTime" onclick="togglePlayer()">00:00:00:00</button>
-            </div>
+            <button id="startButton" onclick="toggleClock()">Start</button>
+            <button id="backButton" onclick="switchPage('timeSelector')">←</button>
+            <button id="blackTime" onclick="togglePlayer()">00:00:00:00</button>
+            <button id="whiteTime" onclick="togglePlayer()">00:00:00:00</button>
         </div>
     </body>
 

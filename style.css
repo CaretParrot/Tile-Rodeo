@@ -1,11 +1,12 @@
-* {
-    color: hsl(240, 90%, 90%);
+html {
+    width: 100vw !important;
+    height: 100vh !important;
 }
 
 body {
-    max-width: 100%;
-    max-height: 100%;
-    display: flex;
+    width: 100%;
+    height: 100%;
+    grid: auto / auto;
 }
 
 label,
@@ -17,10 +18,16 @@ h1 {
     font-size: 4rem !important;
 }
 
+#tileRodeo {
+    display: flex;
+}
+
 label,
 input,
 button {
     font-size: 2rem;
+    justify-content: center;
+    align-content: center;
 }
 
 label,
@@ -31,11 +38,12 @@ button,
     justify-content: center;
     align-items: center;
     text-align: center;
-    flex-grow: 1;
 }
 
 div {
     background-color: transparent;
+    display: grid;
+    grid: auto / auto;
 }
 
 #timeSelector {
@@ -44,71 +52,56 @@ div {
     margin: 0;
     padding: 0;
     grid: auto / auto auto auto auto auto;
+    height: 100% !important;
 }
 
 #clocks {
-    flex-flow: row nowrap;
     background-color: transparent;
     padding: 0;
     margin: 0;
-    flex-grow: 1;
     display: none;
+    grid: auto / auto auto auto;
 }
 
 #blackTime {
     font-size: 10rem;
-    color: hsl(240, 90%, 90%);
     background-color: transparent;
-    rotate: 45deg;
+    grid-area: 1 / 1 / 3 / 1;
 }
 
 #whiteTime {
     font-size: 10rem;
-    color: hsl(240, 10%, 10%);
     background-color: transparent;
-    rotate: -45deg;
+    grid-area: 1 / 3 / 3 / 3;
 }
 
 #startButton {
     font-size: 3rem;
-    color: hsl(240, 90%, 90%);
-    background-color: hsl(240, 50%, 50%);
+    background-color: hsl(240, 50%, 50%) !important;
 }
 
 #backButton {
     font-size: 3rem;
-    color: hsl(0, 90%, 90%);
-    background-color: hsl(0, 50%, 50%);
-    font-size: 300%;
-}
-
-#buttonWrapper {
-    background-color: transparent;
-    flex-flow: column nowrap;
-    padding: 0;
-    margin: 0;
-    flex-grow: 1;
+    color: hsl(0, 90%, 90%) !important;
+    background-color: hsl(0, 50%, 50%)!important;
 }
 
 #homepage {
-    flex-flow: row wrap;
     background-color: transparent;
     padding: 0;
     margin: 0;
-}
-
-#whiteWrapper {
-    background-color: hsl(240, 90%, 90%);
-    margin: 1rem;
-    padding: 1rem;
-}
-
-#blackWrapper {
-    background-color: hsl(240, 10%, 10%) !important;
-    margin: 1rem;
-    padding: 1rem;
 }
 
 .column {
     flex-flow: column wrap;
+}
+
+.page {
+    width: 100%;
+    height: 100% !important;
+    background-color: transparent;
+}
+
+#tileRodeo, #openClocks {
+    grid-column: 1/6;
 }
