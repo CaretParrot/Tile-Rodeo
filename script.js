@@ -45,7 +45,7 @@ function switchPage(pageId) {
 }
 
 function toggleClock() {
-    console.log(whitesTurn);
+    document.getElementById("whiteTime").style.backgroundColor = "light-dark(var(--light-3), var(--dark-3)";
     if (timerRunning === false && whitesTurn === null) {
         timerRunning = true;
         whitesTurn = true;
@@ -92,14 +92,14 @@ function toggleClock() {
     } else if (whitesTurn === "Reset") {
         document.getElementById("startButton").innerHTML = "Start";
 
-        document.getElementById("whiteTime").style.fontSize = "600%";
-        document.getElementById("blackTime").style.fontSize = "600%";
-
         setClocks(document.getElementById("daysTime").value, document.getElementById("hoursTime").value, document.getElementById("minutesTime").value, document.getElementById("secondsTime").value, document.getElementById("daysTime").value, document.getElementById("hoursTime").value, document.getElementById("minutesTime").value, document.getElementById("secondsTime").value);
         whitesTurn = null;
     } else {
         timerRunning = false;
         whitesTurn = null;
+
+        document.getElementById("blackTime").style.backgroundColor = "light-dark(var(--light-2), var(--dark-2)";
+        document.getElementById("whiteTime").style.backgroundColor = "light-dark(var(--light-2), var(--dark-2)";
 
         document.getElementById("startButton").innerHTML = "Start";
         document.getElementById("backButton").style.display = "flex";
@@ -114,11 +114,14 @@ function togglePlayer() {
         whitesTurn = false;
         timerData.white.totalTime += timerData.increment;
         updateClocks();
+        document.getElementById("blackTime").style.backgroundColor = "light-dark(var(--light-3), var(--dark-3)";
+        document.getElementById("whiteTime").style.backgroundColor = "light-dark(var(--light-2), var(--dark-2)";
     } else if (timerRunning === true) {
         whitesTurn = true;
         timerData.black.totalTime += timerData.increment;
-
         updateClocks();
+        document.getElementById("whiteTime").style.backgroundColor = "light-dark(var(--light-3), var(--dark-3)";
+        document.getElementById("blackTime").style.backgroundColor = "light-dark(var(--light-2), var(--dark-2)";
     }
 }
 
